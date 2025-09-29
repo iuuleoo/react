@@ -1,6 +1,6 @@
-type Props = {
+
+type Props = React.ComponentProps<"button"> & {
   name: string
-  onClick?: () => void
 }
 
 export function Button({ name, onClick } : Props){
