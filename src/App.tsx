@@ -1,15 +1,15 @@
 import "./global.css"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import { Button } from "./components/button"
-// import { useMessage } from "./hooks/useMessages"
+import { useMessage } from "./hooks/useMessages"
 
 import styles from "./app.module.css"
 
 export function App(){
   const [count, setCount] = useState(0)
 
- // const { show } = useMessage({ age: 19, name: "Leonardo" })
+  const message = useMessage({ age: 19, name: "Leonardo" })
 
  function handleAdd(){
    setCount(count + 1)
@@ -18,6 +18,10 @@ export function App(){
  function handleRemove(){
    setCount(count - 1)
  }
+
+ useEffect(() => {
+  console.log("Bem vindo")
+ }, [])
 
 
   return (
