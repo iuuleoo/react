@@ -2,26 +2,30 @@ import "./global.css"
 import { useState, useEffect } from "react"
 
 import { Button } from "./components/button"
-import { useMessage } from "./hooks/useMessages"
+// import { useMessage } from "./hooks/useMessages"
 
 import styles from "./app.module.css"
 
 export function App(){
   const [count, setCount] = useState(0)
 
-  const message = useMessage({ age: 19, name: "Leonardo" })
+//  const message = useMessage({ age: 19, name: "Leonardo" })
 
  function handleAdd(){
-   setCount(count + 1)
+   setCount((prevState) => prevState + 1)
  }
 
  function handleRemove(){
-   setCount(count - 1)
+  if (count > 0) {
+   setCount((prevState) => prevState - 1)
+   }
  }
 
  useEffect(() => {
-  console.log("Bem vindo")
- }, [])
+   if(count > 0){
+    console.log("O valor mudou para: " + count)
+   }
+ }, [count])
 
 
   return (
